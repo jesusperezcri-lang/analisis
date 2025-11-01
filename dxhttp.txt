@@ -1,0 +1,176 @@
+Run started:2025-10-31 19:53:14.237314
+
+Test results:
+>> Issue: [B110:try_except_pass] Try, Except, Pass detected.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html
+   Location: ./dxhttp/exc.py:47:16
+46	                    start_response(STATUS, HEADERS)
+47	                except:
+48	                    pass
+49	                yield error_message
+
+--------------------------------------------------
+>> Issue: [B408:blacklist] Using xml.dom.minidom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b408-import-xml-minidom
+   Location: ./dxhttp/html.py:5:0
+4	
+5	import xml.dom.minidom
+6	import functools
+
+--------------------------------------------------
+>> Issue: [B318:blacklist] Using xml.dom.minidom.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-minidom
+   Location: ./dxhttp/html.py:16:28
+15	            f = Replacer(os.path.join(TPL_ROOT, template), vars)
+16	            self.document = xml.dom.minidom.parse(f)
+17	        else:
+
+--------------------------------------------------
+>> Issue: [B318:blacklist] Using xml.dom.minidom.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-minidom
+   Location: ./dxhttp/html.py:112:29
+111	            f = Replacer(path, vars)
+112	            self.appendChild(xml.dom.minidom.parse(f).documentElement)
+113	            return True
+
+--------------------------------------------------
+>> Issue: [B318:blacklist] Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-minidom
+   Location: ./dxhttp/html.py:119:25
+118	        '''Appends html. Must be wrapped in some tag'''
+119	        self.appendChild(xml.dom.minidom.parseString(html).documentElement)
+120	
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with the subprocess module.
+   Severity: Low   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess
+   Location: ./dxhttp/html_etree.py:14:0
+13	
+14	from subprocess import Popen, PIPE
+15	from xml.parsers.expat import ExpatError
+
+--------------------------------------------------
+>> Issue: [B405:blacklist] Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b405-import-xml-etree
+   Location: ./dxhttp/html_etree.py:16:0
+15	from xml.parsers.expat import ExpatError
+16	import xml.etree.ElementTree as ET
+17	import xml.etree.cElementTree as cET
+
+--------------------------------------------------
+>> Issue: [B405:blacklist] Using xml.etree.cElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.cElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b405-import-xml-etree
+   Location: ./dxhttp/html_etree.py:17:0
+16	import xml.etree.ElementTree as ET
+17	import xml.etree.cElementTree as cET
+18	import xml.dom.minidom
+
+--------------------------------------------------
+>> Issue: [B408:blacklist] Using xml.dom.minidom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b408-import-xml-minidom
+   Location: ./dxhttp/html_etree.py:18:0
+17	import xml.etree.cElementTree as cET
+18	import xml.dom.minidom
+19	import functools
+
+--------------------------------------------------
+>> Issue: [B314:blacklist] Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-elementtree
+   Location: ./dxhttp/html_etree.py:30:28
+29	            f = Replacer(os.path.join(TPL_ROOT, template), vars)
+30	            self.document = ET.parse(f)
+31	        else:
+
+--------------------------------------------------
+>> Issue: [B607:start_process_with_partial_path] Starting a process with a partial executable path
+   Severity: Low   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html
+   Location: ./dxhttp/html_etree.py:86:11
+85	    # --output-xml 1, close tags such as <br />, but don't enforce XHTML            
+86	    tidy = Popen(['tidy', '-nq', '--input-encoding', 'utf8', '--output-xml', '1'], stdin=PIPE, stdout=PIPE, stderr=PIPE)    
+87	    stdout, stderr = tidy.communicate(html)
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html
+   Location: ./dxhttp/html_etree.py:86:11
+85	    # --output-xml 1, close tags such as <br />, but don't enforce XHTML            
+86	    tidy = Popen(['tidy', '-nq', '--input-encoding', 'utf8', '--output-xml', '1'], stdin=PIPE, stdout=PIPE, stderr=PIPE)    
+87	    stdout, stderr = tidy.communicate(html)
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with the subprocess module.
+   Severity: Low   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess
+   Location: ./dxhttp/sendmail.py:5:0
+4	import re
+5	import subprocess
+6	
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html
+   Location: ./dxhttp/sendmail.py:29:18
+28	    try:
+29	        process = subprocess.Popen([config.SENDMAIL_PATH, '-t', to],
+30	            stdin=subprocess.PIPE)
+31	    except OSError:
+
+--------------------------------------------------
+>> Issue: [B412:blacklist] Consider possible security implications associated with CGIHandler module.
+   Severity: High   Confidence: High
+   CWE: CWE-284 (https://cwe.mitre.org/data/definitions/284.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b412-import-httpoxy
+   Location: ./dxhttp/srv/cgi.py:3:0
+2	
+3	from wsgiref.handlers import CGIHandler as WSGIServer
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 1739
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 10
+		Medium: 4
+		High: 1
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 0
+		High: 15
+Files skipped (4):
+	./dxhttp/fcgi.py (syntax error while parsing AST from file)
+	./dxhttp/project.py (syntax error while parsing AST from file)
+	./dxhttp/srv/http.py (syntax error while parsing AST from file)
+	./dxhttp/validate.py (syntax error while parsing AST from file)
